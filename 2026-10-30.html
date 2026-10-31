@@ -1,0 +1,1163 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon carnet de coréen 🍁</title>
+
+<style>
+:root {
+  --paper: #f6f1e7;
+  --white: #fffdf8;
+  --green: #315b46;
+  --sage: #dce5d8;
+  --red: #b85f43;
+  --gold: #c99b3b;
+  --ink: #29382f;
+  --muted: #6b776e;
+  --line: #e7dece;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, serif;
+  line-height: 1.7;
+}
+
+.shell {
+  width: min(1100px, calc(100% - 36px));
+  margin: auto;
+}
+
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  color: var(--green);
+  font-weight: bold;
+  letter-spacing: .1em;
+  font-size: .9rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font: .9rem Arial, sans-serif;
+}
+
+nav a:hover { color: var(--red); }
+
+.hero {
+  margin: 30px 0 45px;
+  min-height: 340px;
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  align-items: end;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(25,47,37,.85), rgba(25,47,37,.15)),
+    url("img/Odaesan\ National\ Park\ Autumn\ Day\ Tour\ from\ Seoul\ by\ KTOURSTORY.jpg")
+    /* url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85") */
+    center / cover;
+}
+
+.hero-content { padding: 42px; }
+
+.eyebrow {
+  color: #f1d99c;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font: bold .75rem Arial, sans-serif;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.08;
+  font-weight: normal;
+  margin: 10px 0;
+}
+
+.hero p:last-child {
+  max-width: 550px;
+  color: #f5f1e8;
+}
+
+main { padding-bottom: 50px; }
+
+.section {
+  margin-bottom: 55px;
+  scroll-margin-top: 20px;
+}
+
+.section-title {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+}
+
+.section-title h2 {
+  color: var(--green);
+  font-size: 2.1rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.section-title p {
+  color: var(--muted);
+  margin: 3px 0 0;
+  font: .9rem Arial, sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(50,65,49,.06);
+}
+
+.card h3 {
+  color: var(--red);
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.word {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.word:last-child { border-bottom: 0; }
+
+.kr {
+  color: var(--green);
+  font-family: Arial, sans-serif;
+  font-size: 1.12rem;
+  font-weight: bold;
+}
+
+.fr { color: var(--muted); }
+
+.note {
+  background: #f8f1df;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 15px;
+  margin-top: 18px;
+  color: #5e543e;
+}
+
+.example {
+  background: var(--sage);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 14px 0;
+}
+
+.example .kr {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.tag {
+  display: inline-block;
+  color: #8f4b35;
+  background: #f4e4d9;
+  border-radius: 30px;
+  padding: 4px 10px;
+  font: bold .7rem Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 10px;
+}
+
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 13px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+th {
+  color: var(--green);
+  background: var(--sage);
+}
+
+td:first-child {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: var(--green);
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding: 28px;
+  color: var(--muted);
+}
+
+footer strong {
+  display: block;
+  color: var(--green);
+  font: 1.2rem Arial, sans-serif;
+}
+
+
+/* DIALOGUE */
+
+.dialogue-intro {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 28px;
+}
+
+.dialogue-intro h3 {
+  color: var(--green);
+  font-weight: normal;
+  margin: 5px 0;
+}
+
+.dialogue-part {
+  margin: 30px 0;
+}
+
+.dialogue-part h3 {
+  color: var(--green);
+  font-size: 1.35rem;
+  font-weight: normal;
+  margin-bottom: 3px;
+}
+
+.part-description {
+  color: var(--muted);
+  font-size: .92rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* BULLES */
+
+.speech {
+  max-width: 780px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  border-radius: 15px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 5px 15px rgba(50,65,49,.04);
+}
+
+.speaker {
+  font: bold .82rem Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+
+.korean-line {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+/* TRADUCTION */
+
+.translation {
+    color: #8f4b35;
+    font-style: italic;
+  margin-top: 15px;
+  padding: 12px 14px;
+  min-height: 35px;
+  border-radius: 9px;
+  background: #f8f5ed;
+  border: 1px dashed var(--line);
+}
+
+.translation span {
+  color: var(--muted);
+  font: .75rem Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.translation p {
+  min-height: 30px;
+  margin: 6px 0 0;
+  outline: none;
+}
+
+.translation p:focus {
+  background: #fffdf8;
+  border-radius: 4px;
+}
+
+/* PERSONNAGES */
+
+.julien {
+  border-left: 5px solid var(--green);
+}
+
+.julien .speaker {
+  color: var(--green);
+}
+
+.laura {
+  border-left: 5px solid var(--red);
+  /* margin-left: auto; */
+}
+
+.laura .speaker {
+  color: var(--red);
+}
+
+.employee {
+  border-left: 5px solid var(--gold);
+  margin-left: auto;
+}
+
+.employee .speaker {
+  color: #a47a20;
+}
+
+/* TRANSITION ENTRE LES SCÈNES */
+
+.stage-direction {
+  margin: 35px auto;
+  padding: 20px;
+  max-width: 750px;
+  text-align: center;
+  border-top: 1px dashed var(--gold);
+  border-bottom: 1px dashed var(--gold);
+  color: #8c7139;
+  font-style: italic;
+}
+
+.stage-direction p {
+  color: var(--muted);
+  font-style: normal;
+  font-size: .9rem;
+  margin-bottom: 0;
+}
+
+/* =================================
+   FEUILLES D'AUTOMNE ILLUSTRÉES
+================================= */
+
+.falling-leaves {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Style général des feuilles */
+.leaf {
+  position: absolute;
+  top: -100px;
+  width: 32px;
+  height: 32px;
+  opacity: 0;
+  animation: leaf-fall linear infinite;
+}
+
+/* Feuilles d'érable */
+.maple {
+  fill: #c65c36;
+}
+
+.maple .vein {
+  fill: none;
+  stroke: #87452e;
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+
+/* Feuilles de ginkgo */
+.ginkgo {
+  fill: #d9a83f;
+}
+
+.ginkgo .vein {
+  fill: none;
+  stroke: #a77b28;
+  stroke-width: 1.4;
+  opacity: 0.6;
+}
+
+/* Positions et animations individuelles */
+.leaf-1 {
+  left: 7%;
+  width: 29px;
+  animation-duration: 17s;
+  animation-delay: 0s;
+}
+
+.leaf-2 {
+  left: 19%;
+  width: 25px;
+  animation-duration: 21s;
+  animation-delay: 5s;
+}
+
+.leaf-3 {
+  left: 32%;
+  width: 34px;
+  animation-duration: 19s;
+  animation-delay: 8s;
+}
+
+.leaf-4 {
+  left: 45%;
+  width: 27px;
+  animation-duration: 23s;
+  animation-delay: 2s;
+}
+
+.leaf-5 {
+  left: 61%;
+  width: 31px;
+  animation-duration: 18s;
+  animation-delay: 11s;
+}
+
+.leaf-6 {
+  left: 73%;
+  width: 26px;
+  animation-duration: 22s;
+  animation-delay: 4s;
+}
+
+.leaf-7 {
+  left: 86%;
+  width: 34px;
+  animation-duration: 20s;
+  animation-delay: 7s;
+}
+
+.leaf-8 {
+  left: 95%;
+  width: 24px;
+  animation-duration: 24s;
+  animation-delay: 13s;
+}
+
+/* Mouvement naturel de chute */
+@keyframes leaf-fall {
+  0% {
+    transform: translate(0, -5vh) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.55;
+  }
+
+  35% {
+    transform: translate(35px, 35vh) rotate(130deg);
+  }
+
+  65% {
+    transform: translate(-25px, 70vh) rotate(260deg);
+    opacity: 0.45;
+  }
+
+  90% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translate(20px, 110vh) rotate(400deg);
+    opacity: 0;
+  }
+}
+
+/* Sur les petits écrans */
+@media (max-width: 600px) {
+  .leaf {
+    transform-origin: center;
+    opacity: 0.35;
+  }
+
+  .leaf-1,
+  .leaf-5,
+  .leaf-7 {
+    width: 23px;
+  }
+}
+
+/* Respect des préférences d'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .falling-leaves {
+    display: none;
+  }
+}
+
+@media(max-width: 600px) {
+  .speech {
+    padding: 16px;
+  }
+
+  .korean-line {
+    font-size: 1.08rem;
+  }
+}
+
+@media(max-width: 720px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .grid { grid-template-columns: 1fr; }
+
+  .hero-content { padding: 26px; }
+
+  .word { grid-template-columns: 1fr; gap: 2px; }
+}
+
+@media(max-width: 420px) {
+  .shell { width: calc(100% - 24px); }
+  .card { padding: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Décoration : feuilles d'automne animées -->
+<div class="falling-leaves" aria-hidden="true">
+
+  <!-- Feuille d'érable -->
+  <svg class="leaf maple leaf-1" viewBox="0 0 100 100">
+    <path d="M50 8 L59 31 L79 18 L73 41 L96 44
+    L76 57 L85 78 L59 69 L50 94 L41 69
+    L15 78 L24 57 L4 44 L27 41 L21 18
+    L41 31 Z" />
+    <path class="vein" d="M50 90 L50 15 M50 55 L25 42 M50 55 L75 42 M50 65 L29 72 M50 65 L72 72"/>
+  </svg>
+
+  <!-- Feuille de ginkgo -->
+  <svg class="leaf ginkgo leaf-2" viewBox="0 0 100 100">
+    <path d="M50 90 C45 65 8 55 10 30
+    C12 10 37 17 50 38 C63 17 88 10 90 30
+    C92 55 55 65 50 90 Z"/>
+    <path class="vein" d="M50 88 L50 38 M50 65 L23 30 M50 65 L77 30 M50 65 L37 24 M50 65 L63 24"/>
+  </svg>
+
+  <svg class="leaf maple leaf-3" viewBox="0 0 100 100">
+    <path d="M50 8 L59 31 L79 18 L73 41 L96 44
+    L76 57 L85 78 L59 69 L50 94 L41 69
+    L15 78 L24 57 L4 44 L27 41 L21 18
+    L41 31 Z"/>
+    <path class="vein" d="M50 90 L50 15 M50 55 L25 42 M50 55 L75 42"/>
+  </svg>
+
+  <svg class="leaf ginkgo leaf-4" viewBox="0 0 100 100">
+    <path d="M50 90 C45 65 8 55 10 30
+    C12 10 37 17 50 38 C63 17 88 10 90 30
+    C92 55 55 65 50 90 Z"/>
+    <path class="vein" d="M50 88 L50 38 M50 65 L23 30 M50 65 L77 30"/>
+  </svg>
+
+  <svg class="leaf maple leaf-5" viewBox="0 0 100 100">
+    <path d="M50 8 L59 31 L79 18 L73 41 L96 44
+    L76 57 L85 78 L59 69 L50 94 L41 69
+    L15 78 L24 57 L4 44 L27 41 L21 18
+    L41 31 Z"/>
+    <path class="vein" d="M50 90 L50 15 M50 55 L25 42 M50 55 L75 42"/>
+  </svg>
+
+  <svg class="leaf ginkgo leaf-6" viewBox="0 0 100 100">
+    <path d="M50 90 C45 65 8 55 10 30
+    C12 10 37 17 50 38 C63 17 88 10 90 30
+    C92 55 55 65 50 90 Z"/>
+    <path class="vein" d="M50 88 L50 38 M50 65 L23 30 M50 65 L77 30"/>
+  </svg>
+
+  <svg class="leaf maple leaf-7" viewBox="0 0 100 100">
+    <path d="M50 8 L59 31 L79 18 L73 41 L96 44
+    L76 57 L85 78 L59 69 L50 94 L41 69
+    L15 78 L24 57 L4 44 L27 41 L21 18
+    L41 31 Z"/>
+    <path class="vein" d="M50 90 L50 15 M50 55 L25 42 M50 55 L75 42"/>
+  </svg>
+
+  <svg class="leaf ginkgo leaf-8" viewBox="0 0 100 100">
+    <path d="M50 90 C45 65 8 55 10 30
+    C12 10 37 17 50 38 C63 17 88 10 90 30
+    C92 55 55 65 50 90 Z"/>
+    <path class="vein" d="M50 88 L50 38 M50 65 L23 30 M50 65 L77 30"/>
+  </svg>
+
+</div>
+
+<header>
+  <div class="shell topbar">
+    <div class="brand">한국어 · MON CARNET DE CORÉEN</div>
+    <nav>
+      <a href="#vocabulaire">Vocabulaire</a>
+      <a href="#expressions">Expressions</a>
+      <a href="#grammaire">Grammaire</a>
+      <a href="#exemples">Exemples</a>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">나의 한국어 노트 · Mes notes de coréen</p>
+    <h1>Un voyage<br>mot après mot.</h1>
+    <p>
+      Un carnet pour apprendre, comprendre et mémoriser
+      le coréen, une petite découverte à la fois.
+    </p>
+  </div>
+</section>
+
+<main>
+
+<!-- VOCABULAIRE -->
+
+<section class="section" id="vocabulaire">
+  <div class="section-title">
+    <h2>01 · Le vocabulaire</h2>
+    <p>단어 · Les mots à retenir</p>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <h3>Les vêtements</h3>
+
+      <div class="word">
+        <span class="kr">옷</span>
+        <span class="fr">vêtement, habits</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">반팔</span>
+        <span class="fr">vêtement à manches courtes</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">긴팔</span>
+        <span class="fr">vêtement à manches longues</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">반바지</span>
+        <span class="fr">short</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">긴바지</span>
+        <span class="fr">pantalon</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">외투</span>
+        <span class="fr">manteau, vêtement d'extérieur</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">코트</span>
+        <span class="fr">manteau (coat)</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">목도리</span>
+        <span class="fr">écharpe</span>
+      </div>
+
+      <div class="note">
+        <strong>Astuce :</strong> 반 signifie « moitié ».
+        긴 signifie « long ».
+        반팔 désigne donc les manches courtes,
+        et 긴팔 les manches longues.
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Les mots utiles</h3>
+
+      <div class="word">
+        <span class="kr">편지</span>
+        <span class="fr">lettre, courrier</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">마음</span>
+        <span class="fr">cœur, esprit, sentiments</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">여자</span>
+        <span class="fr">femme</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">남자</span>
+        <span class="fr">homme</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">사람</span>
+        <span class="fr">personne</span>
+      </div>
+
+      <div class="word">
+        <span class="kr">좋아하다</span>
+        <span class="fr">aimer, apprécier</span>
+      </div>
+
+      <div class="note">
+        Les mots 여자 et 남자 permettent de parler
+        respectivement d'une femme et d'un homme.
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- EXPRESSIONS -->
+
+<section class="section" id="expressions">
+  <div class="section-title">
+    <h2>02 · Verbes et expressions</h2>
+    <p>표현 · Comprendre les expressions</p>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <h3>들다</h3>
+
+      <p>
+        Le verbe 들다 possède plusieurs sens.
+        Il faut observer les mots qui l'accompagnent
+        pour comprendre sa signification.
+      </p>
+
+      <div class="example">
+        <span class="kr">마음에 들다</span>
+        <span>plaire à quelqu'un, convenir à quelqu'un</span>
+      </div>
+
+      <p>
+        Dans cette expression, 마음 représente le cœur
+        ou les sentiments, et 들다 apporte l'idée
+        d'entrer ou de se trouver dedans.
+      </p>
+
+      <div class="note">
+        Attention : il ne faut pas traduire 들다
+        toujours de la même manière.
+        Son sens dépend beaucoup du contexte.
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>마음에 들다</h3>
+
+      <p>
+        Cette expression signifie qu'une chose ou une personne
+        plaît à quelqu'un.
+      </p>
+
+      <div class="example">
+        <span class="kr">마음에 들어요.</span>
+        Ça me plaît.
+      </div>
+
+      <div class="example">
+        <span class="kr">이 옷이 마음에 들어요.</span>
+        Ce vêtement me plaît.
+      </div>
+
+      <div class="note">
+        La structure est différente du français :
+        en coréen, ce qui plaît est présenté comme
+        quelque chose qui entre dans le cœur.
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>편지</h3>
+
+      <p>
+        <span class="kr">편지</span> signifie « lettre »,
+        au sens de courrier écrit à quelqu'un.
+      </p>
+
+      <div class="example">
+        <span class="kr">편지를 써요.</span>
+        J'écris une lettre.
+      </div>
+
+      <div class="note">
+        Complément pédagogique : 써요 est la forme polie
+        courante de 쓰다, « écrire ».
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>좋아하다</h3>
+
+      <p>
+        <span class="kr">좋아하다</span> signifie « aimer »
+        ou « apprécier ».
+      </p>
+
+      <div class="example">
+        <span class="kr">저는 한국어를 좋아해요.</span>
+        J'aime le coréen.
+      </div>
+
+      <div class="note">
+        Le verbe 좋아하다 se construit généralement
+        avec un complément marqué par 을 ou 를.
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- GRAMMAIRE -->
+
+<section class="section" id="grammaire">
+  <div class="section-title">
+    <h2>03 · La grammaire</h2>
+    <p>문법 · Les structures importantes</p>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <span class="tag">Forme descriptive</span>
+      <h3>좋아하는 + nom</h3>
+
+      <p>
+        좋아하는 vient du verbe 좋아하다.
+        Cette forme permet de décrire un nom :
+        elle signifie « que quelqu'un aime ».
+      </p>
+
+      <div class="example">
+        <span class="kr">좋아하는 여자</span>
+        Une femme que quelqu'un aime.
+      </div>
+
+      <div class="example">
+        <span class="kr">좋아하는 음식</span>
+        Un plat que quelqu'un aime.
+      </div>
+
+      <p>
+        Le verbe est placé avant le nom qu'il décrit.
+        C'est une construction très fréquente en coréen.
+      </p>
+    </article>
+
+    <article class="card">
+      <span class="tag">Comprendre le contexte</span>
+      <h3>Qui aime qui ?</h3>
+
+      <p>
+        Pour comprendre une phrase, il faut regarder
+        les particules et les éléments qui entourent
+        le groupe verbal.
+      </p>
+
+      <div class="example">
+        <span class="kr">제가 좋아하는 여자</span>
+        La femme que j'aime.
+      </div>
+
+      <div class="example">
+        <span class="kr">여자를 좋아하는 남자</span>
+        Un homme qui aime les femmes.
+      </div>
+
+      <div class="note">
+        La première expression décrit la femme aimée.
+        La seconde décrit l'homme qui aime les femmes.
+        La place des mots et les particules changent
+        la relation entre les éléments.
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+<!-- EXEMPLES -->
+
+<section class="section" id="exemples">
+  <div class="section-title">
+    <h2>04 · Phrases à mémoriser</h2>
+    <p>예문 · Quelques exemples pratiques</p>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <h3>Vêtements</h3>
+
+      <div class="example">
+        <span class="kr">반팔을 입어요.</span>
+        Je porte un haut à manches courtes.
+      </div>
+
+      <div class="example">
+        <span class="kr">목도리를 해요.</span>
+        Je porte une écharpe.
+      </div>
+
+      <div class="example">
+        <span class="kr">코트를 입어요.</span>
+        Je porte un manteau.
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Goûts et préférences</h3>
+
+      <div class="example">
+        <span class="kr">이 옷이 마음에 들어요.</span>
+        Ce vêtement me plaît.
+      </div>
+
+      <div class="example">
+        <span class="kr">제가 좋아하는 음식이에요.</span>
+        C'est un plat que j'aime.
+      </div>
+
+      <div class="example">
+        <span class="kr">편지를 써요.</span>
+        J'écris une lettre.
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- MÉTHODE -->
+
+<section class="section" id="revision">
+  <div class="section-title">
+    <h2>05 · Mes repères</h2>
+    <p>복습 · Pour réviser efficacement</p>
+  </div>
+
+  <article class="card">
+    <h3>Les petites choses à retenir</h3>
+
+    <ul>
+      <li>반 = moitié ; 긴 = long.</li>
+      <li>반팔 = manches courtes ; 긴팔 = manches longues.</li>
+      <li>마음에 들다 = plaire à quelqu'un.</li>
+      <li>편지 = lettre.</li>
+      <li>좋아하다 = aimer, apprécier.</li>
+      <li>좋아하는 + nom = un nom que quelqu'un aime.</li>
+      <li>Les particules aident à comprendre qui fait quoi dans une phrase.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Conseil de révision :</strong>
+      essaie de cacher la traduction française,
+      de lire le mot coréen à voix haute,
+      puis de retrouver son sens sans regarder.
+    </div>
+  </article>
+</section>
+
+
+<section class="section" id="dialogue">
+
+  <div class="section-title">
+    <h2>06 · Dialogue à la poste</h2>
+    <p>대화 · 줄리엥, 로라 그리고 직원</p>
+  </div>
+
+  <div class="dialogue-intro">
+    <span class="tag">Situation</span>
+    <h3>À La Poste en Corée du Sud</h3>
+    <p>
+      Julien et Laura souhaitent envoyer des souvenirs
+      coréens en France.
+    </p>
+  </div>
+
+  <!-- PREMIÈRE PARTIE -->
+
+  <div class="dialogue-part">
+    <h3>① Choisir un carton</h3>
+    <p class="part-description">
+      Julien et Laura demandent un carton pour préparer leur colis.
+    </p>
+
+    <article class="speech julien">
+      <div class="speaker">줄리엥 · Julien</div>
+      <div class="korean-line">우체국 박스 좀 주세요.</div>
+      <p class="translation">Donnez-moi une boîte de la poste, s’il vous plaît.</p>
+    </article>
+
+    <article class="speech employee">
+      <div class="speaker">직원 · Employée</div>
+      <div class="korean-line">
+        어떤 크기로 드릴까요? 1호부터 6호까지 있어요.
+      </div>
+      <p class="translation">Quelle taille souhaitez-vous ? Nous avons des tailles allant du numéro 1 au numéro 6.</p>
+    </article>
+
+    <article class="speech julien">
+      <div class="speaker">줄리엥 · Julien</div>
+      <div class="korean-line">
+        글쎄요... 잠깐만요... 로라, 어떤 선물을 부치려고 해?
+      </div>
+      <p class="translation">Voyons… Un instant… Laura, quel cadeau comptes-tu envoyer ?</p>
+    </article>
+
+    <article class="speech laura">
+      <div class="speaker">로라 · Laura</div>
+      <div class="korean-line">
+        한국 기념품인데 열쇠고리하고 노리개야.
+      </div>
+      <p class="translation">Ce sont des souvenirs de Corée : un porte-clés et un norigae.</p>
+    </article>
+
+    <article class="speech employee">
+      <div class="speaker">직원 · Employée</div>
+      <div class="korean-line">
+        그러면 1호 박스면 중분할 것 같아요.
+        저쪽에서 포장하고 다시 오세요.
+      </div>
+      <p class="translation">Dans ce cas, je pense qu’une boîte numéro 1 devrait suffire. Allez emballer votre colis là-bas, puis revenez.</p>
+    </article>
+  </div>
+
+  <!-- TRANSITION -->
+
+  <div class="stage-direction">
+    (줄리엥과 로라는 포장을 끝낸 다음에 직원에게 온다.)
+    <p>
+      Julien et Laura reviennent auprès de l'employée
+      après avoir terminé l'emballage.
+    </p>
+  </div>
+
+  <!-- DEUXIÈME PARTIE -->
+
+  <div class="dialogue-part">
+    <h3>② Envoyer le colis en France</h3>
+    <p class="part-description">
+      Le colis est prêt. Ils se renseignent sur les tarifs et les délais.
+    </p>
+
+    <article class="speech julien">
+      <div class="speaker">줄리엥 · Julien</div>
+      <div class="korean-line">
+        프랑스로 보내려고 하는데 요금이 얼마예요?
+      </div>
+      <p class="translation">Je voudrais l’envoyer en France. Combien coûtent les frais d’envoi ?</p>
+    </article>
+
+    <article class="speech employee">
+      <div class="speaker">직원 · Employée</div>
+      <div class="korean-line">
+        이엠에스(EMS)는 29,800원이에요.
+      </div>
+      <p class="translation">L’envoi par EMS coûte 29 800 wons.</p>
+    </article>
+
+    <article class="speech julien">
+      <div class="speaker">줄리엥 · Julien</div>
+      <div class="korean-line">며칠 걸려요?</div>
+      <p class="translation">Combien de jours faut-il ?</p>
+    </article>
+
+    <article class="speech employee">
+      <div class="speaker">직원 · Employée</div>
+      <div class="korean-line">
+        나흘에서 닷새 걸려요.
+        인터넷으로 배송 조회도 할 수 있어요.
+      </div>
+      <p class="translation">Il faut entre quatre et cinq jours. Vous pouvez également suivre la livraison sur Internet.</p>
+    </article>
+
+    <article class="speech julien">
+      <div class="speaker">줄리엥 · Julien</div>
+      <div class="korean-line">배로는 며칠 걸려요?</div>
+      <p class="translation">Et par bateau, combien de jours faut-il ?</p>
+    </article>
+
+    <article class="speech employee">
+      <div class="speaker">직원 · Employée</div>
+      <div class="korean-line">두 달 정도 걸려요.</div>
+      <p class="translation">Il faut environ deux mois.</p>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>천천히, 하지만 꾸준히.</strong>
+  Lentement, mais régulièrement. 🍁
+</footer>
+
+</div>
+</body>
+</html>
